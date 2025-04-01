@@ -175,7 +175,7 @@ until the tests pass.
 
 ## Product Agent
 
-<img alt="Eve Horizon" src="assets/epics.png" width="800px"/>
+<img alt="Eve Horizon" src="assets/product-agent.png" width="800px"/>
 
 The Product Agent will help you refine your requirements and turn them into an Epic with child stories.
 We support a simplified "in-repo" mechanism for this currently by storing markdown and json files inside the ./epics directory inside the git Repo

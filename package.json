@@ -9,7 +9,7 @@
       }
     }
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Eve Horizon",
   "author": "adam.chesney@incept5.com",
   "private": true,
@@ -18,7 +18,7 @@
     "@langchain/anthropic": "^0.3.14",
     "@langchain/community": "^0.3.12",
     "@langchain/core": "^0.3.17",
-    "@langchain/google-genai": "^0.2.0",
+    "@langchain/google-genai": "^0.2.1",
     "@langchain/groq": "^0.1.2",
     "@langchain/langgraph": "^0.2.20",
     "@langchain/mistralai": "^0.1.1",

@@ -12,6 +12,7 @@
 
 Eve is a powerful tool that allows you to develop software at a higher level using natural language.
 
+
 Key Features:
 * Node-based server and easy to use web UI
 * Supports Anthropic Claude Sonnet 3.5 (and also Google Gemini, OpenAI, Groq, GLHF, Mistral & Ollama - for local LLMs)
@@ -29,10 +30,6 @@ Key Features:
 * Simplified "In-Repo" Epics/Stories/Task project management
 
 
-## Eve in Action
-
-https://github.com/user-attachments/assets/8ec11e01-b513-4acc-9e06-319a2772472e
-
 ## Quick Start
 
 1. Clone the repository
@@ -41,7 +38,7 @@ https://github.com/user-attachments/assets/8ec11e01-b513-4acc-9e06-319a2772472e
 4. Run the Eve server with ./eve.sh
 5. Access the web UI in your browser at http://localhost:3010
 6. Go to the Settings page (bottom link on left hand menu) and enter the required API keys:
-6. Get your free Eve API Key from here: https://higherlevel.dev/app
+6. Get your free Eve API Key from here: https://incept5.github.io/eve-web-admin
 7. Get a Claude API Key from https://console.anthropic.com
 8. Get your Groq API Key from https://console.groq.com (this is needed for cheap summarization)
 9. Get your GLHF API Key from https://glhf.chat (free access to open source models such as Llama3.3)
@@ -50,23 +47,21 @@ https://github.com/user-attachments/assets/8ec11e01-b513-4acc-9e06-319a2772472e
 
 For detailed instructions, see the sections below.
 
-If you have questions then feel free to email: adam@higherleveldev.com
+If you have questions then feel free to email: adam.chesney@incept5.com
 
-Or better yet, [join the slack here](https://join.slack.com/t/higherleveldevgroup/shared_invite/zt-2qsik2mti-Y8y_VjO2GFvVqBI_H~JeEA).
-
-## Higher Level Dev Guide
+## Eve Dev Guide
 
 We are creating a guide to help you transition to the world of higher level development.
 
 The guide covers (or will cover!) topics such as:
 
-1. Introduction to Higher Level Development
+1. Introduction to higher level development
 2. How the AI Software Engineering Agent works
-3. Best Practices to get the most out of HLDK
+3. Best Practices to get the most out of Eve
 4. Advanced Usage
 5. Troubleshooting
 
-To access the guide, please open the [index page](guide/index.md) in the `guide` directory. This living document will be updated regularly with new information and examples to help you make the most of the HLDK system.
+To access the guide, please open the [index page](guide/index.md) in the `guide` directory. This living document will be updated regularly with new information and examples to help you make the most of the Eve system.
 
 **NOTE that the guide is a work in progress and is not complete yet....**
 

@@ -1,0 +1,56 @@
+name: Create Release and Tag
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  create-release-and-tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Get previous tag
+        id: previoustag
+        run: echo "previous_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo '')" >> $GITHUB_ENV
+
+      - name: Create Tag
+        id: create_tag
+        uses: jaywcjlove/create-tag-action@main
+        if: env.previous_tag
+        with:
+          package-path: ./package.json
+
+      - name: Generate Changelog
+        id: changelog
+        uses: jaywcjlove/changelog-generator@main
+        if: steps.create_tag.outputs.successful == 'true'
+        with:
+          head-ref: ${{steps.create_tag.outputs.version}}
+          filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)
+          filter: (^[\s]+?[R|r]elease)|(^[R|r]elease)
+
+      - name: Create Release
+        uses: jaywcjlove/create-tag-action@main
+        if: steps.create_tag.outputs.successful == 'true'
+        with:
+          version: ${{steps.create_tag.outputs.version}}
+          release: true
+          body: |
+            ${{ steps.changelog.outputs.compareurl }}
+            ${{ steps.changelog.outputs.changelog }}
+
+      - name: Print Version Info
+        run: |
+          echo "version - ${{ steps.create_tag.outputs.version }}"
+          echo "versionNumber - ${{ steps.create_tag.outputs.versionNumber }}"
+          echo "majorVersion - ${{ steps.create_tag.outputs.majorVersion }}"
+          echo "minorVersion - ${{ steps.create_tag.outputs.minorVersion }}"
+          echo "patchVersion - ${{ steps.create_tag.outputs.patchVersion }}"
+          echo "preversion - ${{ steps.create_tag.outputs.preversion }}"
+          echo "successful - ${{ steps.create_tag.outputs.successful }}"

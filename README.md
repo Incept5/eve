@@ -301,10 +301,10 @@ It should contain things like:
 * Point to good examples of things (e.g. services, entities etc) to look at when adding a new one of those
 * Tips about architecture or performance stuff
 
-Here is an example from the HigherLevelDevKit itself:
+Here is an example from the Eve itself:
 
 <pre>
-   # These are hints for HLDK or any other AI agent to help it understand the codebase.
+   # These are hints for Eve or any other AI agent to help it understand the codebase.
    
    # DATABASE CHANGES
    

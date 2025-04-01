@@ -1,4 +1,4 @@
-<p align="center" style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
+<p align="center" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
   <img alt="Eve" src="assets/eve_logo.png" width="200px"/>
   <img alt="Incept5" src="assets/incept5.png" width="200px"/>
 </p>

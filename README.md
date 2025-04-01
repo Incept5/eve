@@ -152,7 +152,7 @@ To stop the server, you can use `Ctrl+C` in the terminal where the server is run
 ## Workspaces
 
 
-<img alt="Eve Horizon" src="assets/workspaces-page.png" width="800"/>
+<img alt="Eve Horizon" src="assets/screenshots/workspaces.png" width="800"/>
 
 
 ### Import a Local Repo
@@ -165,7 +165,7 @@ Once you have a bunch of workspaces you might find it annoying to have to keep s
 You can select the workspace you want for the agent in the dropdown and then by clicking on the star icon to the right of the dropdown
 you can make that workspace the default which will be pre-selected for the current agent.
 
-<img alt="Eve Horizon" src="assets/default-workspace.png" width="600"/>
+<img alt="Eve Horizon" src="assets/screenshots/default-workspace.png" width="600"/>
 
 ### Build/Test Command
 You can set a command or script for the SE Agent to run after it makes its code changes but before committing them to git. 

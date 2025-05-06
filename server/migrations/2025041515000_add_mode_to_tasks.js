@@ -1,0 +1,1 @@
+exports.up=function(e){return e.schema.table("eve_tasks",(function(e){e.string("mode").defaultTo("plan")}))},exports.down=function(e){return e.schema.table("eve_tasks",(function(e){e.dropColumn("mode")}))};

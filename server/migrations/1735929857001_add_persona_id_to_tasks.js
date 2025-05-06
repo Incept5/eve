@@ -1,0 +1,1 @@
+exports.up=function(e){return e.schema.table("eve_tasks",(function(s){s.string("personaId").defaultTo("software-engineer"),e.schema.hasColumn("eve_tasks","systemPrompt")&&s.dropColumn("systemPrompt")}))},exports.down=function(e){return e.schema.table("eve_tasks",(function(s){e.schema.hasColumn("eve_tasks","systemPrompt")||s.text("systemPrompt"),s.dropColumn("personaId")}))};

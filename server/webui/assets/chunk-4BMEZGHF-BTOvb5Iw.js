@@ -1,0 +1,1 @@
+import{_ as l}from"./index-7KE8nO4y.js";function m(l,c){var t,e,a;l.accDescr&&(null==(t=c.setAccDescription)||t.call(c,l.accDescr)),l.accTitle&&(null==(e=c.setAccTitle)||e.call(c,l.accTitle)),l.title&&(null==(a=c.setDiagramTitle)||a.call(c,l.title))}l(m,"populateCommonDb");export{m as p};

@@ -1,1 +1,0 @@
-import{ao as r,ap as n}from"./index-lZ6GsQ9f.js";const t=(a,s)=>r.lang.round(n.parse(a)[s]);export{t as c};

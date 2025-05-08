@@ -1,0 +1,1 @@
+exports.up=function(t){return t.schema.table("eve_task_blocks",(function(t){t.text("metadata").nullable()}))},exports.down=function(t){return t.schema.table("eve_task_blocks",(function(t){t.dropColumn("metadata")}))};

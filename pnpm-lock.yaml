@@ -12,14 +12,14 @@ importers:
         specifier: ^0.39.0
         version: 0.39.0(encoding@0.1.13)
       '@google/generative-ai':
-        specifier: ^0.18.0
-        version: 0.18.0
+        specifier: ^0.24.1
+        version: 0.24.1
       '@langchain/anthropic':
         specifier: ^0.3.14
         version: 0.3.15(@langchain/core@0.3.17(openai@4.71.1(encoding@0.1.13)(zod@3.24.4)))(encoding@0.1.13)
       '@langchain/community':
         specifier: ^0.3.12
-        version: 0.3.12(4b250c67008723bb9a467952bce9d871)
+        version: 0.3.12(6f7c82ea70b39c4f08043bb430b6ba57)
       '@langchain/core':
         specifier: ^0.3.17
         version: 0.3.17(openai@4.71.1(encoding@0.1.13)(zod@3.24.4))
@@ -106,7 +106,7 @@ importers:
         version: 11.9.1
       chromadb:
         specifier: ^1.9.2
-        version: 1.9.2(@google/generative-ai@0.18.0)(encoding@0.1.13)(openai@4.71.1(encoding@0.1.13)(zod@3.24.4))
+        version: 1.9.2(@google/generative-ai@0.24.1)(encoding@0.1.13)(openai@4.71.1(encoding@0.1.13)(zod@3.24.4))
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -146,6 +146,9 @@ importers:
       is-zip:
         specifier: ^1.0.0
         version: 1.0.0
+      isbinaryfile:
+        specifier: ^5.0.4
+        version: 5.0.4
       jsdom:
         specifier: ^25.0.1
         version: 25.0.1
@@ -170,6 +173,9 @@ importers:
       mime-types:
         specifier: ^2.1.35
         version: 2.1.35
+      minimatch:
+        specifier: ^10.0.1
+        version: 10.0.1
       multer:
         specifier: 1.4.5-lts.1
         version: 1.4.5-lts.1
@@ -297,12 +303,8 @@ packages:
   '@dabh/diagnostics@2.0.3':
     resolution: {integrity: sha512-hrlQOIi7hAfzsMqlGSFyVucrx38O+j6wiGOf//H2ecvIEqYN4ADBSS2iLMh5UFyDunCNniUIPk/q3riFv45xRA==}
 
-  '@google/generative-ai@0.18.0':
-    resolution: {integrity: sha512-AhaIWSpk2tuhYHrBhUqC0xrWWznmYEja1/TRDIb+5kruBU5kUzMlFsXCQNO9PzyTZ4clUJ3CX/Rvy+Xm9x+w3g==}
-    engines: {node: '>=18.0.0'}
-
-  '@google/generative-ai@0.24.0':
-    resolution: {integrity: sha512-fnEITCGEB7NdX0BhoYZ/cq/7WPZ1QS5IzJJfC3Tg/OwkvBetMiVJciyaan297OvE4B9Jg1xvo0zIazX/9sGu1Q==}
+  '@google/generative-ai@0.24.1':
+    resolution: {integrity: sha512-MqO+MLfM6kjxcKoy0p1wRzG3b4ZZXtPI+z2IE26UogS2Cm/XHO+7gGRBh6gcJsOiIVoH93UwKvW4HdgiOZCy9Q==}
     engines: {node: '>=18.0.0'}
 
   '@huggingface/jinja@0.2.2':
@@ -1985,6 +1987,10 @@ packages:
   isarray@1.0.0:
     resolution: {integrity: sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==}
 
+  isbinaryfile@5.0.4:
+    resolution: {integrity: sha512-YKBKVkKhty7s8rxddb40oOkuP0NbaeXrQvLin6QMHL7Ypiy2RW9LwOVrVgZRyOrhQlayMd9t+D8yDy8MKFTSDQ==}
+    engines: {node: '>= 18.0.0'}
+
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
@@ -3402,9 +3408,7 @@ snapshots:
       enabled: 2.0.0
       kuler: 2.0.0
 
-  '@google/generative-ai@0.18.0': {}
-
-  '@google/generative-ai@0.24.0': {}
+  '@google/generative-ai@0.24.1': {}
 
   '@huggingface/jinja@0.2.2': {}
 
@@ -3443,7 +3447,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@langchain/community@0.3.12(4b250c67008723bb9a467952bce9d871)':
+  '@langchain/community@0.3.12(6f7c82ea70b39c4f08043bb430b6ba57)':
     dependencies:
       '@ibm-cloud/watsonx-ai': 1.1.1
       '@langchain/core': 0.3.17(openai@4.71.1(encoding@0.1.13)(zod@3.24.4))
@@ -3461,7 +3465,7 @@ snapshots:
     optionalDependencies:
       '@xenova/transformers': 2.17.2
       better-sqlite3: 11.9.1
-      chromadb: 1.9.2(@google/generative-ai@0.18.0)(encoding@0.1.13)(openai@4.71.1(encoding@0.1.13)(zod@3.24.4))
+      chromadb: 1.9.2(@google/generative-ai@0.24.1)(encoding@0.1.13)(openai@4.71.1(encoding@0.1.13)(zod@3.24.4))
       d3-dsv: 3.0.1
       ignore: 7.0.4
       jsdom: 25.0.1
@@ -3521,7 +3525,7 @@ snapshots:
 
   '@langchain/google-genai@0.2.1(@langchain/core@0.3.17(openai@4.71.1(encoding@0.1.13)(zod@3.24.4)))(zod@3.24.4)':
     dependencies:
-      '@google/generative-ai': 0.24.0
+      '@google/generative-ai': 0.24.1
       '@langchain/core': 0.3.17(openai@4.71.1(encoding@0.1.13)(zod@3.24.4))
       zod-to-json-schema: 3.24.5(zod@3.24.4)
     transitivePeerDependencies:
@@ -4093,12 +4097,12 @@ snapshots:
 
   chownr@1.1.4: {}
 
-  chromadb@1.9.2(@google/generative-ai@0.18.0)(encoding@0.1.13)(openai@4.71.1(encoding@0.1.13)(zod@3.24.4)):
+  chromadb@1.9.2(@google/generative-ai@0.24.1)(encoding@0.1.13)(openai@4.71.1(encoding@0.1.13)(zod@3.24.4)):
     dependencies:
       cliui: 8.0.1
       isomorphic-fetch: 3.0.0(encoding@0.1.13)
     optionalDependencies:
-      '@google/generative-ai': 0.18.0
+      '@google/generative-ai': 0.24.1
       openai: 4.71.1(encoding@0.1.13)(zod@3.24.4)
     transitivePeerDependencies:
       - encoding
@@ -4900,6 +4904,8 @@ snapshots:
   is-zip@1.0.0: {}
 
   isarray@1.0.0: {}
+
+  isbinaryfile@5.0.4: {}
 
   isexe@2.0.0: {}
 

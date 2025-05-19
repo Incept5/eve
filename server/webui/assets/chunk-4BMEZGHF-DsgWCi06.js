@@ -1,1 +1,0 @@
-import{_ as l}from"./index-eEbdAixb.js";function m(l,c){var e,t,a;l.accDescr&&(null==(e=c.setAccDescription)||e.call(c,l.accDescr)),l.accTitle&&(null==(t=c.setAccTitle)||t.call(c,l.accTitle)),l.title&&(null==(a=c.setDiagramTitle)||a.call(c,l.title))}l(m,"populateCommonDb");export{m as p};

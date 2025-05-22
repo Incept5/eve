@@ -12,7 +12,7 @@
       "better-sqlite3"
     ]
   },
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Eve Horizon",
   "author": "adam.chesney@incept5.com",
   "private": true,

@@ -1,0 +1,1 @@
+"use strict";exports.up=async function(e){await e.schema.table("eve_tasks",(function(e){e.integer("totalCacheWriteTokens").defaultTo(0),e.integer("totalCacheReadTokens").defaultTo(0)}))},exports.down=async function(e){await e.schema.table("eve_tasks",(function(e){e.dropColumn("totalCacheWriteTokens"),e.dropColumn("totalCacheReadTokens")}))};

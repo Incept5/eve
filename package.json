@@ -12,7 +12,7 @@
       "better-sqlite3"
     ]
   },
-  "version": "2.6.3",
+  "version": "2.7.0",
   "description": "Eve Horizon",
   "author": "adam.chesney@incept5.com",
   "private": true,
@@ -20,6 +20,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "@google/generative-ai": "^0.24.1",
+    "@google/genai": "^1.2.0",
     "@langchain/anthropic": "^0.3.14",
     "@langchain/community": "^0.3.12",
     "@langchain/core": "^0.3.17",

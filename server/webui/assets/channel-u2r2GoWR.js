@@ -1,0 +1,1 @@
+import{ao as r,ap as n}from"./index-CB0suIR2.js";const t=(a,s)=>r.lang.round(n.parse(a)[s]);export{t as c};

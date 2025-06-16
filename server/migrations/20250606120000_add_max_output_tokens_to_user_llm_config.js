@@ -1,0 +1,1 @@
+exports.up=function(e){return e.schema.table("user_llm_configurations",(function(e){e.integer("max_output_tokens").nullable().comment("User override for max output tokens. NULL means use model maximum.")}))},exports.down=function(e){return e.schema.table("user_llm_configurations",(function(e){e.dropColumn("max_output_tokens")}))};

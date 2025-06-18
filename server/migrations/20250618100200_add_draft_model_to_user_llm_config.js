@@ -1,0 +1,1 @@
+exports.up=function(e){return e.schema.table("user_llm_configurations",(e=>{e.string("draft_model_id").references("model_id").inTable("llm_models").onDelete("SET NULL")}))},exports.down=function(e){return e.schema.table("user_llm_configurations",(e=>{e.dropColumn("draft_model_id")}))};

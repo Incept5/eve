@@ -1,0 +1,1 @@
+exports.up=function(l){return l.schema.table("llm_models",(l=>{l.string("family")}))},exports.down=function(l){return l.schema.table("llm_models",(l=>{l.dropColumn("family")}))};

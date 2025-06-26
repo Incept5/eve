@@ -26,7 +26,7 @@ start_server() {
     # Set the PLUGIN_DIR environment variable
     export PLUGIN_DIR="$PWD/server/plugins"
     
-    local start_command="node $SERVER_FILE"
+    local start_command="node --experimental-modules --es-module-specifier-resolution=node --experimental-top-level-await --experimental-require-module --experimental-print-required-tla $SERVER_FILE"
     echo "Starting the server with command: $start_command"
     echo "PLUGIN_DIR set to: $PLUGIN_DIR"
     env $(cat .env | grep -v '^#' | xargs) $start_command &

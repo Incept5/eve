@@ -1,0 +1,1 @@
+import{_ as s}from"./index-jDBr2C2C.js";var t,e=(s(t=class{constructor(t){this.init=t,this.records=this.init()}reset(){this.records=this.init()}},"ImperativeState"),t);export{e as I};

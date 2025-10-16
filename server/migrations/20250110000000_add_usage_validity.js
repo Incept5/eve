@@ -1,1 +1,1 @@
-exports.up=async function(a){await a.schema.table("eve_task_usage",(a=>{a.boolean("is_valid").defaultTo(!0).notNullable(),a.index(["taskId","is_valid","createdAt"],"idx_task_usage_valid")}))},exports.down=async function(a){await a.schema.table("eve_task_usage",(a=>{a.dropIndex(["taskId","is_valid","createdAt"],"idx_task_usage_valid"),a.dropColumn("is_valid")}))};
+exports.up=async function(n){},exports.down=async function(n){};

@@ -1,0 +1,1 @@
+exports.up=function(n){return n.schema.table("user_llm_configurations",(function(n){n.string("thinking_level",20).nullable().comment("Qualitative thinking level (e.g., low, high) for models that use level-based thinking instead of token budgets")}))},exports.down=function(n){return n.schema.table("user_llm_configurations",(function(n){n.dropColumn("thinking_level")}))};

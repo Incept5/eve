@@ -24,7 +24,6 @@ Key Features:
 * Ops Agent to install tools and bootstrap new projects
 * MCP Agent to install Model Context Protocol server tools to hook up your agents to any 3rd party system
 * Private Coder is a simplified coding agent tuned to work with the best open source models
-* Audio transcription support (talk instead of type)
 * Workspace management for multiple projects
 * Git integration for version control
 * Simplified "In-Repo" Epics/Stories/Task project management
@@ -34,15 +33,14 @@ Key Features:
 
 1. Clone the repository
 2. Verify and install required tools (Node.js 20+ and pnpm)
-3. (Optional) Set up audio transcription
-4. Run the Eve server with ./eve.sh
-5. Access the web UI in your browser at http://localhost:3010
-6. Go to the Settings page (bottom link on left hand menu) and enter the required API keys:
+3. Run the Eve server with ./eve.sh
+4. Access the web UI in your browser at http://localhost:3010
+5. Go to the Settings page (bottom link on left hand menu) and enter the required API keys:
 6. Get your free Eve API Key from here: https://incept5.github.io/eve-web-admin
 7. Get a Claude API Key from https://console.anthropic.com
 8. Get your Groq API Key from https://console.groq.com (this is needed for cheap summarization)
 9. Get your GLHF API Key from https://glhf.chat (free access to open source models such as Llama3.3)
-10. Import your local git repo as a workspace 
+10. Import your local git repo as a workspace
 11. Chat with the Agents to make updates to your system
 
 For detailed instructions, see the sections below.
@@ -101,28 +99,6 @@ For more information on installing and using pnpm, visit: https://pnpm.io/instal
      - During installation, make sure to select the option to include Git Bash
 
 Once you have Node.js, pnpm, and Git CLI tools (for Windows) installed, you can proceed with the setup of the Eve Horizon.
-
-### Audio Transcription Setup
-
-Eve includes support for audio transcription (talk into the mic instead of typing) using the faster-whisper library. To set up the audio transcription feature, follow these steps:
-
-1. Make sure you have Python3 and pip installed on your system. If not, the installation script will attempt to install them for you.
-
-2. Run the install-faster-whisper.sh script:
-
-   ```
-   ./scripts/install-faster-whisper.sh
-   ```
-
-   This script will:
-   - Check if Python3 and pip are installed, and install them if necessary.
-   - Install the faster-whisper-cli package using pip.
-
-3. After running the script, the faster-whisper-cli should be installed and ready to use with Eve.
-
-Note: The installation script supports macOS and Linux. For Windows users, you may need to install Python3, pip, and faster-whisper-cli manually.
-
-If you encounter any issues during the installation, please refer to the error messages in the console or seek assistance from the project maintainers.
 
 ## Running the Eve Server
 
@@ -232,15 +208,6 @@ Send specs or commands by filling out the text area at the bottom that says _"Ty
 If you want a new line you can use **Shift+Enter**
 
 You can upload images and send them up to the Agent (if the LLM supports multimodal) using the image button.
-
-### Voice Transcription
-
-<img alt="Eve Horizon" src="assets/mic-input.png" width="400px"/>
-
-If you want to provide your specs via voice then make sure you have installed the faster whisper cli (see above) and then
-just **HOLD** the mic button down... once the mic button turns red then it is listening and will continue to listen until you let
-go of the button at which point the recording is streamed to the server and then to faster whisper and the resulting text
-will appear in the text area. You will then still need to submit this text by pressing **Enter** or clicking the send button.
 
 ### Aborting
 
@@ -356,85 +323,6 @@ All MCP servers are stored in the `~/.eve/mcp-servers` directory (unless overrid
 ### Building Custom MCP Servers
 
 If no existing MCP server meets your needs, you can ask the MCP Agent to help you build a custom server. The agent will guide you through the process of creating a new MCP server that implements the specific functionality you require.
-
-## Implementing a Plugin
-
-Eve supports custom plugins, allowing you to extend its functionality. Here's how to implement a plugin:
-
-1. **Plugin Directory Structure**: 
-   Create a new directory for your plugin in `server/plugins/<plugin-name>`.
-
-2. **Configuration File**:
-   Create a `plugin-config.json` file in your plugin directory with the following structure:
-   ```json
-   {
-     "name": "<plugin-name>",
-     "agent": "<plugin-name>-agent.js",
-     "tools": {
-       "<toolName>": "<tool-name>-tool.js"
-     }
-   }
-   ```
-
-3. **Agent Implementation**:
-   If your plugin includes an agent, create an `<plugin-name>-agent.js` file. The agent must implement:
-   - `getSystemPrompt(context)` method
-   - (Optional) `getToolNames()` method
-
-This is an example agent.js:
-
-```
-   module.exports = {
-      async getSystemPrompt(context) {
-         return `You are an Echo Agent. Your task is to repeat the user's message and add the current date.
-             IMPORTANT: Format the response as JSON and only return the JSON string: {"echo": "<message> <current date>"}
-         `;
-      },
-      async getToolNames(context) {
-         return ['current_date'];
-      }
-   };
-```
-4. **Tool Implementation**:
-   For each tool, create a `<tool-name>-tool.js` file. Each tool must extend the langchain Tool class.
-
-5. **Example**:
-   You can use the `echo-agent` plugin as a reference, located in `server/plugins/echo-agent/`.
-
-6. **Testing**:
-   After adding your plugin, you can invoke the agent with an HTTP POST request to:
-   ```
-   POST http://localhost:3010/agents/<plugin-name>/responseContent
-   Accepts: application/json
-   {
-    "workspaceName":"hldk",
-    "content":"meow",
-    "config": {
-        "model":"groq/llama3-groq-70b-8192-tool-use-preview"
-    }
-   }
-   
-   ```
-   Set the `Accepts` header to `application/json` for JSON responses.
-
-Examine the existing plugins in the `server/plugins/` directory.
-
-**TIP: Add this repo as a workspace and ask the se-agent to create your plugin!**
-
-### Prompt Placeholders
-
-When implementing the `getSystemPrompt(context)` method in your agent, you can use the following placeholders in your prompt:
-
-- `${context.sessionId}`: The current session ID
-- `${context.requestId}`: The current request ID
-- `${context.workspace.name}`: The name of the current workspace
-- `${context.workspace.repoBaseDir}`: The base directory of the repository
-- `${context.workspace.remoteRepoUrl}`: The remote URL of the repository
-- `${context.workspace.buildOrTestCommand}`: The build or test command for the workspace
-- `${context.repositoryTree()}`: The directory tree of the repository
-- `${context.repositoryHints()}`: The contents of the hints.md file in the repository root
-
-These placeholders will be automatically replaced with their corresponding values when the prompt is generated. Use them to provide context-specific information to your agent.
 
 ## Troubleshooting
 

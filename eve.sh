@@ -2,6 +2,27 @@
 
 # Eve Server Startup Script
 
+# Print system info banner
+echo "═══════════════════════════════════════════════════════"
+echo "                    Eve Server Startup                  "
+echo "═══════════════════════════════════════════════════════"
+echo ""
+echo "System Information:"
+echo "  OS:      $(uname -s) $(uname -r)"
+echo "  Arch:    $(uname -m)"
+echo "  Node:    $(node --version 2>/dev/null || echo 'Not found')"
+echo "  pnpm:    $(pnpm --version 2>/dev/null || echo 'Not found')"
+if [ "$(uname -s)" = "Darwin" ]; then
+    echo "  CPU:     $(sysctl -n machdep.cpu.brand_string 2>/dev/null || echo 'Unknown')"
+    echo "  Memory:  $(( $(sysctl -n hw.memsize 2>/dev/null) / 1073741824 )) GB"
+else
+    echo "  CPU:     $(grep -m1 'model name' /proc/cpuinfo 2>/dev/null | cut -d: -f2 | xargs || echo 'Unknown')"
+    echo "  Memory:  $(free -h 2>/dev/null | awk '/^Mem:/{print $2}' || echo 'Unknown')"
+fi
+echo ""
+echo "═══════════════════════════════════════════════════════"
+echo ""
+
 # Function to handle errors
 handle_error() {
     echo "Error: $1" >&2
@@ -29,7 +50,11 @@ start_server() {
     local start_command="node --experimental-modules --es-module-specifier-resolution=node --experimental-top-level-await --experimental-require-module --experimental-print-required-tla $SERVER_FILE"
     echo "Starting the server with command: $start_command"
     echo "PLUGIN_DIR set to: $PLUGIN_DIR"
-    env $(cat .env | grep -v '^#' | xargs) $start_command &
+    if [ -f ".env" ]; then
+        env $(cat .env | grep -v '^#' | xargs) $start_command &
+    else
+        $start_command &
+    fi
     SERVER_PID=$!
 
     # Wait for the server to start (adjust the sleep time if needed)
@@ -45,7 +70,7 @@ start_server() {
 }
 
 echo "Checking npm packages..."
-pnpm install
+pnpm install 2>&1 | grep -v "Warning\|Ignored build scripts\|pnpm approve-builds\|^╭\|^│\|^╰"
 
 # Start the server
 echo "Starting Eve server..."

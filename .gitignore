@@ -125,3 +125,6 @@ report.json
 flowise/.hl-flowise-repo/
 flowise/logs/*.log
 flowise/logs/*.log.jsonl
+
+.claude
+

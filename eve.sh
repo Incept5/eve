@@ -44,12 +44,11 @@ fi
 
 # Function to start the server
 start_server() {
-    local start_command="node $SERVER_FILE"
-    echo "Starting the server with command: $start_command"
+    echo "Starting the server with command: node $SERVER_FILE"
     if [ -f ".env" ]; then
-        env $(cat .env | grep -v '^#' | xargs) $start_command &
+        env $(cat .env | grep -v '^#' | xargs) node "$SERVER_FILE" &
     else
-        $start_command &
+        node "$SERVER_FILE" &
     fi
     SERVER_PID=$!
 
